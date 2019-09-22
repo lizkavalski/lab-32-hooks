@@ -1,28 +1,21 @@
-import React from 'react';
+import React from "react";
 
-import useForm from './hooks/forms.js';
+import useForm from "../hooks/forms";
 
-const API = 'https://api-401n13.herokuapp.com/api/v1/todo';
+const API = "https://api-401n13.herokuapp.com/api/v1/shopping";
 
-/*
-  text: { type:String, required:true },
-  category: {type: String},
-  assignee: { type:String, required:true },
-  difficulty: {type:Number, required:true, default: 3},
-  complete: {type:Boolean, required:true, default:false},
-*/
-function Todo(props) {
-  const categories = ['Housework', 'Schoolwork', 'Fun'];
+function Shopping(props) {
   const [handleChange, handleSubmit] = useForm(saveFormDataToServer);
+  const aisles = ["Cat food", "Wine", "Meals for One"];
 
   function saveFormDataToServer(formData) {
     let json = JSON.stringify(formData);
     fetch(API, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json"
       },
-      body: json,
+      body: json
     })
       .then(response => response.json())
       .then(data => console.log(data))
@@ -38,18 +31,18 @@ function Todo(props) {
       <label>
         <input
           onChange={handleChange}
-          placeholder="What do you want to do"
-          name="text"
+          placeholder="Item"
+          name="item"
           type="text"
         />
       </label>
       <label>
-        <span>Category</span>
+        <span>Aisle</span>
         <select onChange={handleChange} name="aisle">
           <option />
-          {categories.map((category, idx) => (
-            <option value={category} key={idx}>
-              {category}
+          {aisles.map((aisle, idx) => (
+            <option value={aisle} key={idx}>
+              {aisle}
             </option>
           ))}
         </select>
@@ -57,18 +50,15 @@ function Todo(props) {
       <label>
         <input
           onChange={handleChange}
-          placeholder="Assignee"
-          name="assignee"
+          placeholder="Store Name"
+          name="store"
           type="text"
         />
       </label>
       <label>
-        <input type="range" name="difficulty" min="1" max="11" />
-      </label>
-      <label>
         <input
           onChange={handleChange}
-          name="complete"
+          name="purchased"
           type="radio"
           value="true"
         />
@@ -77,7 +67,7 @@ function Todo(props) {
       <label>
         <input
           onChange={handleChange}
-          name="complete"
+          name="purchased"
           type="radio"
           value="false"
         />
@@ -88,4 +78,4 @@ function Todo(props) {
   );
 }
 
-export default Todo;
+export default Shopping;
