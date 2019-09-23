@@ -1,29 +1,29 @@
-import React,{useState, useEffect} from "react";
-import Q from '@nmq/q/client';
-
+import React,{useState, useEffect} from 'react';
+import useQ from '../hooks/q.js';
 
 function ToDoList(props) {
 
-  const [item,setItems]=useState([]);
-  const [subscribe]=useQ('todo');
+  const [items,setItems]=useState([]);
+  const [subscribe]=useQ('database');
 
-  const handleNewWords = (payloads)=>{
-    setItems((items)=> [...items,payload.record]);
+  const handleNewItem = (payload)=>{
+    setItems ( (items)=> [...items,payload.record]);
   };
 
-  useEffect(()=>{
-    subscribe('create',(message)=>handleNewWords(message));
+  useEffect( () => {
+    subscribe('create', (message) => handleNewItem(message));
 
     fetch(process.env.REACT_APP_API)
-    .then(results=>results.json())
-    .then(data => setItems(data.results))
-    .catch(console.error)
-  },[])
+      .then( results => results.json() )
+      .then( data => setItems(data.results) )
+      .catch( console.error );
+
+  }, []);
 
   return (
     <ul>
-      {
-        items.map((item,idx)=> <li key={item._id}>{item.text}</li>)
+       {
+        items.map( (item,idx) => <li key={item._id}>{item.text}</li>)
       }
     </ul>
   );
