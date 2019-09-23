@@ -17,7 +17,7 @@ function Todo(props) {
 
   function saveFormDataToServer(formData) {
     let json = JSON.stringify(formData);
-    fetch(API, {
+    fetch(process.env.REACT_APP_API, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -32,8 +32,7 @@ function Todo(props) {
   return (
     <form
       onSubmit={handleSubmit}
-      method="post"
-      action="https://api-401n13.herokuapp.com/api/v1/shopping"
+  
     >
       <label>
         <input
