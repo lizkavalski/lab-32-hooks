@@ -28,6 +28,10 @@ Is a function that reviced infomation(items for a shopping list) from the 'form'
 
 A hook that handles changes to the page.
 
+#### `q.js`
+
+A hook that handles the socket.io server.
+
 ### Setup
 
 #### `.env` requirements
@@ -50,4 +54,4 @@ A hook that handles changes to the page.
 
 #### UML
 
-Link to an image of the UML for your application and response to events
+![UML lab-32](UMLlab-32.jpg)
