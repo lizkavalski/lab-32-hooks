@@ -6,7 +6,7 @@
 
 ### Links and Resources
 [![Build Status](https://travis-ci.com/lizkavalski/lab-32-hooks.svg?branch=master)](https://travis-ci.com/lizkavalski/lab-32-hooks)
-- [submission PR](https://github.com/lizkavalski/lab-32-hooks/pull/3)
+- [submission PR](https://github.com/lizkavalski/lab-32-hooks/pull/5)
 - [heruko](https://api-401n13.herokuapp.com/api/v1/todo)-class sever
 - [front-end](https://5d8997e4807961ca6d7212d7--lab-32-hooks.netlify.com/)
 
