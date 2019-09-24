@@ -1,13 +1,13 @@
-import React,{useState, useEffect} from 'react';
-import useQ from '../hooks/q.js';
+import React, {useState, useEffect} from 'react';
+import useQ from './hooks/q.js';
 
 function ToDoList(props) {
 
-  const [items,setItems]=useState([]);
-  const [subscribe]=useQ('database');
+  const [items,setItems] = useState([]);
+  const [subscribe] = useQ('database');
 
-  const handleNewItem = (payload)=>{
-    setItems ( (items)=> [...items,payload.record]);
+  const handleNewItem = (payload) => {
+    setItems( (items) => [...items, payload.record] );
   };
 
   useEffect( () => {
@@ -20,9 +20,10 @@ function ToDoList(props) {
 
   }, []);
 
+
   return (
     <ul>
-       {
+      {
         items.map( (item,idx) => <li key={item._id}>{item.text}</li>)
       }
     </ul>

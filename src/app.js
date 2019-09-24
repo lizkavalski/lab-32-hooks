@@ -1,6 +1,6 @@
 import React from "react";
-import Todo from "./component/todo";
-import TodoList from "./component/todo-list";
+import Todo from "./todo";
+import TodoList from "./todo-list";
 // import Shopping from "./component/shopping";
 
 import "./app.scss";

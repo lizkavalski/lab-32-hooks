@@ -1,20 +1,19 @@
-import React from "react";
+import React from 'react';
 
-import useForm from "../hooks/forms";
-
+import useForm from './hooks/forms.js';
 
 function Todo(props) {
-  const categories = ["Housework", "Schoolwork", "Fun"];
+  const categories = ['Housework', 'Schoolwork', 'Fun'];
   const [handleChange, handleSubmit] = useForm(saveFormDataToServer);
 
   function saveFormDataToServer(formData) {
     let json = JSON.stringify(formData);
     fetch(process.env.REACT_APP_API, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json"
+        'Content-Type': 'application/json',
       },
-      body: json
+      body: json,
     })
       .then(response => response.json())
       .then(data => console.log(data))
@@ -24,7 +23,6 @@ function Todo(props) {
   return (
     <form
       onSubmit={handleSubmit}
-  
     >
       <label>
         <input
