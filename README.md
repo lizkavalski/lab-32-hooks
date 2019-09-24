@@ -31,9 +31,9 @@ A hook that handles changes to the page.
 ### Setup
 
 #### `.env` requirements
-
-- `PORT` - Port Number
-- `MONGODB_URI` - URL to the running mongo instance/db
+- `REACT_APP_Q_SERVER`= URL connection to the socket.io server.
+- `REACT_APP_API`= URL connection to the server database.
+- 
 
 #### Running the app
 
@@ -44,9 +44,9 @@ A hook that handles changes to the page.
 
 #### Tests
 
-- How do you run tests?
-- What assertions were made?
-- What assertions need to be / should be made?
+- Run `npm test`
+- It just make sure it dose not crash when it runs
+- The assertions I need to make is to connect the server and socket.io to the ones I builted(not the class) and then make sure the page render when something has been submiting
 
 #### UML
 
