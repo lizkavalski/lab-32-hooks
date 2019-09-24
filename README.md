@@ -8,7 +8,7 @@
 [![Build Status](https://travis-ci.com/lizkavalski/lab-32-hooks.svg?branch=master)](https://travis-ci.com/lizkavalski/lab-32-hooks)
 - [submission PR](https://github.com/lizkavalski/lab-32-hooks/pull/3)
 - [heruko](https://api-401n13.herokuapp.com/api/v1/todo)-class sever
-- [front-end](http://xyz.com) (when applicable)
+- [front-end](https://musing-goldberg-7f58cc.netlify.com/)- not connected to the server
 
 ### Modules
 
