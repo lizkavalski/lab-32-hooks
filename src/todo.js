@@ -1,28 +1,19 @@
-import React from "react";
+import React from 'react';
 
-import useForm from "../hooks/forms";
+import useForm from './hooks/forms.js';
 
-const API = "https://api-401n13.herokuapp.com/api/v1/todo";
-
-/*
-  text: { type:String, required:true },
-  category: {type: String},
-  assignee: { type:String, required:true },
-  difficulty: {type:Number, required:true, default: 3},
-  complete: {type:Boolean, required:true, default:false},
-*/
 function Todo(props) {
-  const categories = ["Housework", "Schoolwork", "Fun"];
+  const categories = ['Housework', 'Schoolwork', 'Fun'];
   const [handleChange, handleSubmit] = useForm(saveFormDataToServer);
 
   function saveFormDataToServer(formData) {
     let json = JSON.stringify(formData);
-    fetch(API, {
-      method: "POST",
+    fetch(process.env.REACT_APP_API, {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json"
+        'Content-Type': 'application/json',
       },
-      body: json
+      body: json,
     })
       .then(response => response.json())
       .then(data => console.log(data))
@@ -32,8 +23,6 @@ function Todo(props) {
   return (
     <form
       onSubmit={handleSubmit}
-      method="post"
-      action="https://api-401n13.herokuapp.com/api/v1/shopping"
     >
       <label>
         <input
@@ -53,6 +42,14 @@ function Todo(props) {
             </option>
           ))}
         </select>
+      </label>
+      <label>
+        <input
+          onChange={handleChange}
+          placeholder="Dte"
+          name="due"
+          type="date"
+        />
       </label>
       <label>
         <input
